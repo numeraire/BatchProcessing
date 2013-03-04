@@ -8,4 +8,4 @@ br.testmethod()
 print br.ISIN
 
 print "hello world"
-print "test git"
+print "test git 03-04-2013"
