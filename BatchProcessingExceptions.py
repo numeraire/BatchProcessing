@@ -2,11 +2,16 @@ __author__ = 'blocke'
 
 
 class BatchRecordException(Exception):
+    pass
 
-    def __init__(self, value):
 
-        self.value = value
+class BatchRecordInvalidDataTypeException(BatchRecordException):
+    pass
 
-    def __str__(self):
 
-        return repr(self.value)
+class BatchRecordInvalidRecordLength(BatchRecordException):
+    pass
+
+
+class BatchRecordLastRecordException(BatchRecordException):
+    pass
