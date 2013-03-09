@@ -7,18 +7,15 @@ from BatchProcessingExceptions import BatchRecordInvalidDataTypeException, Batch
 from BatchProcessingExceptions import BatchRecordLastRecordException
 
 
-class ABatchRecordShould(TestCase):
+class TestBatchRecord(TestCase):
 
     def __init__(self, test_name):
         TestCase.__init__(self, test_name)
         self.br = BatchRecord(BatchRecordDataType + ((BatchDataTotalLength - len(BatchRecordDataType)) * "*"))
 
     def test_batch_record_invalid_length(self):
-        test = " "
+        test = BatchRecordDataType + " "
         self.assertRaises(BatchRecordInvalidRecordLength, BatchRecord, test)
-
-    def test_zero_contracts(self):
-        self.assertEquals(0, self.br.contracts)
 
     def test_batch_record_is_not_data_type(self):
         test = "I2" + ((BatchDataTotalLength - len(BatchRecordDataType)) * "*")
@@ -28,5 +25,5 @@ class ABatchRecordShould(TestCase):
         test = BatchRecordDataType + ((BatchDataTotalLength - len(BatchRecordDataType)) * "9")
         self.assertRaises(BatchRecordLastRecordException, BatchRecord, test)
 
-#if __name__ == '__main__':
-#    main()
+if __name__ == '__main__':
+    unittest.main()

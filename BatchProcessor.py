@@ -1,13 +1,22 @@
+from BatchProcessingExceptions import BatchRecordInvalidDataTypeException, BatchRecordLastRecordException
 from BatchRecord import BatchRecord
 
 __author__ = 'blocke'
 
 def main():
 
-    br = BatchRecord("test")
+    f = open("C:\\Users\\blocke\\Data\\BatchData\\smd_batch_MDDS_fut.out", 'r')
 
-    print "hello world"
-    print "test git 03-04-2013"
+    for line in f:
+
+        try:
+            br = BatchRecord(line[16:-1])
+        except BatchRecordInvalidDataTypeException as exc:
+            pass #print exc.message
+        except BatchRecordLastRecordException:
+            pass
+
+    f.close()
 
 if __name__ == '__main__':
     main()
