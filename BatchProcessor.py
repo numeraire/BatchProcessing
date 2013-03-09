@@ -5,7 +5,7 @@ __author__ = 'blocke'
 
 def main():
 
-    f = open("C:\\Users\\blocke\\Data\\BatchData\\smd_batch_MDDS_fut.out", 'r')
+    f = open("C:\\Data\\BatchData\\smd_batch_MDDS_fut.out", 'r')
 
     for line in f:
 
